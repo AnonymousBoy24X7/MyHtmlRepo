@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+        }
+
+        .box {
+            width: 300px;
+            background-color: white;
+            padding: 40px;
+            margin: 80px auto;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px gray;
+            padding-right: 60px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: green;
+            width: 320px;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: darkgreen;
+        }
+
+        label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>Student Registration</h2>
+
+    <form onsubmit="return validate()">
+
+        <label>Full Name</label><br>
+        <input type="text" id="name"><br><br>
+
+        <label>Email</label><br>
+        <input type="text" id="email"><br><br>
+
+        <label>Age</label><br>
+        <input type="text" id="age"><br><br>
+
+        <input type="submit" value="Register">
+
+    </form>
+</div>
+
+<script>
+function validate() {
+
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var age = document.getElementById("age").value;
+
+    if (name == "") {
+        alert("Please enter your name");
+        return false;
+    }
+
+    if (email == "") {
+        alert("Please enter your email");
+        return false;
+    }
+
+    if (age == "") {
+        alert("Please enter your age");
+        return false;
+    }
+
+    if (age < 18 || age > 60) {
+        alert("Age must be between 18 and 60");
+        return false;
+    }
+
+    alert("Form submitted successfully!");
+    return true;
+}
+</script>
+
+</body>
+</html>

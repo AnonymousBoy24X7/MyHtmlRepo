@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            grid-template-rows: 60px 1fr 40px;
+            grid-template-areas:
+                "sidebar header"
+                "sidebar main"
+                "sidebar footer";
+            height: 100vh;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+            background-color: #1f2933;
+            color: white;
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            color: #38bdf8;
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin: 15px 0;
+        }
+
+        .sidebar a:hover {
+            color: #38bdf8;
+        }
+
+        .header {
+            grid-area: header;
+            background-color: #eef1f5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .header h2 {
+            margin: 0;
+        }
+
+        button {
+            padding: 8px 14px;
+            background-color: #38bdf8;
+            border: none;
+            color: black;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .main {
+            grid-area: main;
+            padding: 20px;
+            background-color: #f4f7fa;
+            overflow-y: auto;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            margin: 0;
+            color: #555;
+        }
+
+        .card p {
+            font-size: 22px;
+            margin-top: 10px;
+        }
+
+        .footer {
+            grid-area: footer;
+            background-color: #eef1f5;
+            text-align: center;
+            line-height: 40px;
+            color: gray;
+        }
+
+        .dark {
+            background-color: #111827;
+            color: white;
+        }
+
+        .dark .sidebar {
+            background-color: #020617;
+        }
+
+        .dark .header {
+            background-color: #1f2933;
+            color: white;
+        }
+
+        .dark .main {
+            background-color: #1f2933;
+        }
+
+        .dark .card {
+            background-color: #111827;
+            color: white;
+        }
+
+        .dark .footer {
+            background-color: #1f2933;
+            color: white;
+        }
+
+        @media (max-width: 900px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "header"
+                    "main"
+                    "footer";
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="dashboard" id="dash">
+    <div class="sidebar">
+        <h2>Admin</h2>
+        <a href="#">Dashboard</a>
+        <a href="#">Users</a>
+        <a href="#">Reports</a>
+        <a href="#">Settings</a>
+    </div>
+
+    <div class="header">
+        <h2>Admin Dashboard</h2>
+        <button onclick="toggleTheme()">Toggle Theme</button>
+    </div>
+
+    <div class="main">
+        <div class="cards">
+            <div class="card">
+                <h3>Users</h3>
+                <p>1,240</p>
+            </div>
+
+            <div class="card">
+                <h3>Revenue</h3>
+                <p>$18,560</p>
+            </div>
+
+            <div class="card">
+                <h3>Orders</h3>
+                <p>320</p>
+            </div>
+
+            <div class="card">
+                <h3>Feedback</h3>
+                <p>85%</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2026 My Dashboard
+    </div>
+</div>
+
+<script>
+    function toggleTheme() {
+        document.getElementById("dash").classList.toggle("dark");
+    }
+</script>
+
+</body>
+</html>

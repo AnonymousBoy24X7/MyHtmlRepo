@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Bank</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: lightblue;
+        }
+
+        .box {
+            width: 300px;
+            background: white;
+            padding: 15px;
+            margin: 100px auto;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        input {
+            width: 95%;
+            padding: 6px;
+            margin: 8px -10px;
+            
+        }
+
+        button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            background-color: green;
+            color: white;
+            border: none;
+        }
+
+        button:hover {
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>My Bank</h2>
+
+    <p>Balance: ₹ <span id="bal">1000</span></p>
+
+    <input type="text" id="amt" placeholder="Enter amount">
+
+    <button onclick="deposit()">Deposit</button>
+    <button onclick="withdraw()">Withdraw</button>
+</div>
+
+<script>
+    var balance = 1000;
+
+    function deposit() {
+        var amount = document.getElementById("amt").value;
+
+        if (amount == "") {
+            alert("Enter amount");
+            return;
+        }
+
+        balance = balance + Number(amount);
+        document.getElementById("bal").innerText = balance;
+    }
+
+    function withdraw() {
+        var amount = document.getElementById("amt").value;
+
+        if (amount == "") {
+            alert("Enter amount");
+            return;
+        }
+
+        if (amount > balance) {
+            alert("Not enough balance");
+            return;
+        }
+
+        balance = balance - Number(amount);
+        document.getElementById("bal").innerText = balance;
+    }
+</script>
+
+</body>
+</html>
